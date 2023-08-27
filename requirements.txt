@@ -1,0 +1,24 @@
+PHP Local Development Requirements:
+
+Installations:
+    1. Install PHP, Apache and MySQL using XAMPP - https://www.apachefriends.org/index.html
+    2. Install Composer - https://getcomposer.org/download/
+    3. Install Phynx using composer (used for db migrations) - `composer require robmorgan/phinx`
+    
+Database Initialization:
+    1. Create a database named 'scm_db' using mysql cli
+    2. Run migration commands - `vendor/bin/phinx migrate` (This will create the initial data and tables required for the project)
+    
+Starting the project:
+    1. Copy the absolute path name of the project directory
+    2. Go to the apache configuration directory (C:\xampp\apache\conf) 
+    3. Open httpd.conf file
+    4. In the file, find `# Virtual hosts` and add a new line with this statement `Include "C:/Projects/scm/scm.conf"` (change the project directory depending on where u saved it)
+    5. Project should be now running in http://localhost
+
+Using APIs:
+    1. For register, create a html form submit action to this url - http://localhost/register.php with the form values of username and password
+    2. For login, create a html form submit action to this url - http://localhost/login.php with the registered username and password values
+    3. Once login request responds with success response, redirect the users to a new html page, which will do a fetch request to this url - http://localhost/get_activities.php
+    4. This request will respond with JSON response of all the list of summer camp activities.
+    
